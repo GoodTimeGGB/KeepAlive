@@ -1,0 +1,392 @@
+.container {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 448px;
+  margin: 0 auto;
+  position: relative;
+  background-color: var(--brand-dark);
+}
+
+/* 扫描线 */
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand-orange), transparent);
+  opacity: 0.3;
+  animation: scan 3s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+/* 标题栏 */
+.header {
+  border-bottom: 2px solid var(--brand-surface);
+  padding: 16px;
+}
+
+.header-title {
+  display: block;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--brand-white);
+}
+
+.header-subtitle {
+  display: block;
+  font-size: 12px;
+  color: var(--brand-muted);
+  font-family: 'Courier New', monospace;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* 主要内容 */
+.main-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 通用区块 */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand-muted);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-left: 4px;
+  border-left: 2px solid var(--brand-orange);
+}
+
+/* 登录按钮 */
+.login-btn {
+  width: 100%;
+  background-color: var(--wechat-green);
+  border: 2px solid var(--brand-white);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.login-btn:active {
+  transform: translateX(4px) translateY(4px);
+}
+
+.login-icon {
+  font-size: 24px;
+}
+
+.login-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand-white);
+}
+
+.login-hint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--brand-muted);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 昵称输入 */
+.nickname-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nickname-input {
+  width: 100%;
+  background-color: var(--brand-surface);
+  border: 2px solid var(--brand-muted);
+  padding: 12px;
+  color: var(--brand-white);
+  font-size: 14px;
+}
+
+.save-btn {
+  width: 100%;
+  background-color: var(--brand-orange);
+  border: 2px solid var(--brand-white);
+  padding: 12px;
+  color: var(--brand-white);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.save-btn:active {
+  transform: translateX(4px) translateY(4px);
+}
+
+/* 用户卡片 */
+.user-card {
+  background-color: var(--brand-surface);
+  border: 2px solid var(--brand-muted);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--brand-white);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand-white);
+}
+
+.user-label {
+  font-size: 12px;
+  color: var(--brand-muted);
+  font-family: 'Courier New', monospace;
+}
+
+/* 设置卡片 */
+.settings-card {
+  background-color: var(--brand-surface);
+  border: 2px solid var(--brand-muted);
+}
+
+.setting-item {
+  padding: 16px;
+  border-bottom: 1px solid var(--brand-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.setting-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--brand-dark);
+  border: 2px solid var(--brand-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.setting-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.setting-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand-white);
+}
+
+.setting-desc {
+  font-size: 12px;
+  color: var(--brand-muted);
+  font-family: 'Courier New', monospace;
+}
+
+/* 时间设置卡片 */
+.time-card {
+  background-color: var(--brand-surface);
+  border: 2px solid var(--brand-muted);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.time-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.time-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand-muted);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+.time-value {
+  background-color: var(--brand-dark);
+  border: 2px solid var(--brand-muted);
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.time-time {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-white);
+  font-family: 'Courier New', monospace;
+}
+
+.time-period {
+  font-size: 12px;
+  color: var(--brand-muted);
+  font-family: 'Courier New', monospace;
+}
+
+.time-arrow {
+  font-size: 24px;
+  color: var(--brand-muted);
+}
+
+.time-hint {
+  text-align: center;
+  font-size: 10px;
+  color: var(--brand-muted);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* 扩展功能卡片 */
+.extension-card {
+  background-color: var(--brand-surface);
+  border: 2px solid var(--brand-muted);
+}
+
+.extension-btn {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.extension-btn:active {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.extension-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.extension-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--brand-dark);
+  border: 2px solid var(--wechat-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.extension-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.extension-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand-white);
+}
+
+.extension-desc {
+  font-size: 12px;
+  color: var(--brand-muted);
+}
+
+.extension-arrow {
+  font-size: 20px;
+  color: var(--brand-muted);
+}
+
+/* 页脚 */
+.footer {
+  margin-top: auto;
+  padding-top: 32px;
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--brand-muted);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--brand-orange);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.footer-text {
+  font-size: 10px;
+  color: var(--brand-muted);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

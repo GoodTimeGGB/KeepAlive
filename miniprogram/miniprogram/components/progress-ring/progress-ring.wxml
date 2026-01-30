@@ -1,0 +1,12 @@
+<view class="progress-ring-container">
+  <view class="progress-ring" style="background: conic-gradient(var(--brand-orange) {{progress}}%, var(--brand-surface) {{progress}}%)">
+    <view class="progress-inner">
+      <view class="progress-text">
+        <text class="current-value">{{current}}</text>
+        <text class="divider">/</text>
+        <text class="total-value">{{total}}</text>
+      </view>
+      <text class="progress-label">CUPS</text>
+    </view>
+  </view>
+</view>

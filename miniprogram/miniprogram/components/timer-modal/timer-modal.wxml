@@ -1,0 +1,30 @@
+<view class="timer-modal {{show ? 'show' : ''}}" wx:if="{{show}}">
+  <view class="timer-backdrop" bindtap="onClose"></view>
+  <view class="timer-content animate-float">
+    <!-- 装饰边框 -->
+    <view class="timer-border"></view>
+    
+    <!-- 图标 -->
+    <view class="timer-icon">
+      <text class="icon">🧘</text>
+    </view>
+    
+    <!-- 标题 -->
+    <text class="timer-title">提肛运动倒计时</text>
+    
+    <!-- 计时器 -->
+    <view class="timer-display">
+      <text class="timer-value">{{timerCount}}</text>
+      <text class="timer-unit">秒</text>
+    </view>
+    
+    <!-- 提示 -->
+    <text class="timer-hint">坚持一下，马上就好！</text>
+    
+    <!-- 按钮 -->
+    <view class="timer-buttons">
+      <button class="btn-cancel" bindtap="onClose">取消</button>
+      <button class="btn-complete" bindtap="onComplete">立即完成</button>
+    </view>
+  </view>
+</view>

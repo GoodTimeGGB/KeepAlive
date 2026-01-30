@@ -1,0 +1,19 @@
+{
+  "description": "程序员加油站",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "appid": "your_appid_here",
+  "projectname": "KeepAlive",
+  "libVersion": "2.19.4",
+  "condition": {}
+}

@@ -1,0 +1,75 @@
+<view class="container">
+  <!-- 扫描线效果 -->
+  <view class="scan-line"></view>
+  
+  <!-- 顶部信息栏 -->
+  <view class="header">
+    <view class="header-info">
+      <text class="header-period">MORNING</text>
+      <text class="header-user">DEV_01</text>
+    </view>
+    <view class="header-avatar">
+      <text>👨‍💻</text>
+    </view>
+  </view>
+
+  <!-- 主要内容 -->
+  <view class="main-content">
+    <!-- 标题区域 -->
+    <view class="hero-section">
+      <text class="hero-title">代码写累了吧？</text>
+      <text class="hero-subtitle">&lt;drink / rest&gt;</text>
+    </view>
+
+    <!-- 统计卡片 -->
+    <view class="stats-grid">
+      <view class="stat-card">
+        <view class="stat-icon">🔥</view>
+        <view class="stat-info">
+          <text class="stat-label">Streak</text>
+          <text class="stat-value">{{streak}} days</text>
+        </view>
+      </view>
+      
+      <view class="stat-card">
+        <view class="stat-icon">⏱️</view>
+        <view class="stat-info">
+          <text class="stat-label">Focus</text>
+          <text class="stat-value">{{focusTime}} hrs</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 进度环 -->
+    <view class="progress-section">
+      <progress-ring current="{{waterCount}}" total="{{dailyTarget}}"></progress-ring>
+      <text class="progress-hint">点击下方按钮打卡</text>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="action-buttons">
+      <button class="btn-drink glitch-hover" bindtap="onDrinkWater">
+        <view class="btn-content">
+          <text class="btn-icon">💧</text>
+          <text class="btn-text">DRINK WATER</text>
+        </view>
+        <view class="btn-tag">+250ml</view>
+      </button>
+      
+      <button class="btn-exercise" bindtap="onExercise">
+        <view class="btn-content">
+          <text class="btn-icon">🧘</text>
+          <text class="btn-text">MOVE / EXERCISE</text>
+        </view>
+        <text class="btn-arrow">→</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 计时弹窗 -->
+  <timer-modal 
+    show="{{showTimerModal}}" 
+    bind:close="onCloseModal" 
+    bind:complete="onCompleteExercise">
+  </timer-modal>
+</view>

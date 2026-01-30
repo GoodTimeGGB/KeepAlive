@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>程序员加油站 - 首页</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "brand-dark": "#0D0D0D",
+                        "brand-gray": "#1A1A1A",
+                        "brand-surface": "#252525",
+                        "brand-orange": "#FF6B35",
+                        "brand-blue": "#4ECDC4",
+                        "brand-white": "#E5E5E5",
+                        "brand-muted": "#808080",
+                    },
+                    fontFamily: {
+                        "display": ["Playfair Display", "serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                        "sans": ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "none": "0px",
+                        "sm": "2px",
+                        "md": "4px",
+                    },
+                    boxShadow: {
+                        "brutal": "4px 4px 0px 0px #FF6B35",
+                        "brutal-blue": "4px 4px 0px 0px #4ECDC4",
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .pattern-grid {
+            background-image: linear-gradient(#252525 1px, transparent 1px),
+                              linear-gradient(90deg, #252525 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FF6B35, transparent);
+            opacity: 0.3;
+            animation: scan 3s linear infinite;
+        }
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(200%); }
+        }
+        .glitch-hover:hover {
+            animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-white font-sans min-h-screen overflow-x-hidden antialiased">
+    <div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-brand-dark">
+        
+        <!-- Scan Line Effect -->
+        <div class="scan-line"></div>
+        
+        <!-- Header -->
+        <header class="relative border-b-2 border-brand-surface">
+            <div class="pattern-grid opacity-5 absolute inset-0"></div>
+            <div class="relative flex items-center justify-between p-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-brand-orange border-2 border-brand-white rotate-45 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-brand-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4 1.79-4 4 4zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4 1.79-4 4 4zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4 1.79-4 4 4zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4 1.79-4 4 4z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xs text-brand-muted font-mono">MORNING</p>
+                        <p class="text-sm font-bold font-display tracking-tight">DEV_01</p>
+                    </div>
+                </div>
+                <button class="w-10 h-10 bg-brand-surface border border-brand-muted hover:bg-brand-orange hover:border-brand-white transition-colors flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.41 0 5.083 1.756 5.083 3.41 0 6.667-1.756 6.667-2.924c0-1.284.832-2.167 1.792-2.167 3.95v6.666c0 1.784 1.458 3.241 3.241 3.241h6.508c1.784 0 3.241-1.458 3.241-3.241V6.583c0-1.783-1.458-3.241-3.241-3.241h-6.508c-1.783 0-3.241 1.458-3.241 3.241v6.666c0 1.183-.832 2.167-1.792 2.167-.959 0-2.167.959-2.167 1.792-2.167 3.241H8.417z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col p-4 gap-6 relative">
+            <div class="pattern-grid opacity-5 absolute inset-0 pointer-events-none"></div>
+            
+            <!-- Hero Section -->
+            <div class="relative border-l-4 border-brand-orange pl-4">
+                <h1 class="text-3xl font-black font-display tracking-tight leading-none mb-2">
+                    代码写累了吧？
+                </h1>
+                <p class="text-brand-muted text-lg font-normal border-b border-brand-surface pb-2">
+                    &lt;drink / rest&gt;
+                </p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-brand-surface border border-brand-muted p-3">
+                    <div class="flex items-center gap-2 mb-2">
+                        <svg class="w-5 h-5 text-brand-orange" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2v20M2 12h20M12 2z"/>
+                        </svg>
+                        <span class="text-xs font-mono text-brand-muted uppercase">Streak</span>
+                    </div>
+                    <p class="text-2xl font-bold font-mono">3<span class="text-sm text-brand-muted">days</span></p>
+                </div>
+                <div class="bg-brand-surface border border-brand-muted p-3">
+                    <div class="flex items-center gap-2 mb-2">
+                        <svg class="w-5 h-5 text-brand-blue" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 8v4l3 3m6-3l-3-3V4M5 8h14m-3 3 3-3v-4m-6 6-3-3V8H5z"/>
+                        </svg>
+                        <span class="text-xs font-mono text-brand-muted uppercase">Focus</span>
+                    </div>
+                    <p class="text-2xl font-bold font-mono">4<span class="text-sm text-brand-muted">hrs</span></p>
+                </div>
+            </div>
+
+            <!-- Water Progress Circle -->
+            <div class="flex flex-col items-center gap-3 py-4">
+                <div class="relative group cursor-pointer" id="water-circle">
+                    <div class="absolute -inset-1 bg-brand-orange/20 blur-xl rounded-full transition-all duration-300 group-hover:bg-brand-orange/40"></div>
+                    <div class="relative w-40 h-40 bg-brand-surface border-4 border-brand-orange rounded-none flex items-center justify-center overflow-hidden">
+                        <div class="absolute bottom-0 left-0 right-0 h-[38%] bg-brand-orange/20"></div>
+                        <div class="relative z-10 text-center">
+                            <p class="text-4xl font-black font-display text-brand-white leading-none">3</p>
+                            <p class="text-xs font-mono text-brand-muted">/8 cups</p>
+                            <p class="text-[10px] text-brand-muted uppercase tracking-widest mt-1">click</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs font-mono text-brand-muted text-center uppercase tracking-widerest">Water Tracker</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col gap-3">
+                <button class="relative w-full bg-brand-orange border-2 border-brand-white hover:bg-brand-blue hover:border-brand-white transition-all duration-200 active:translate-x-1 active:translate-y-1 group glitch-hover">
+                    <div class="flex items-center justify-between p-4">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4m16-4-4-4m4 4-4 4m16 4 4 4zM4 14h16m-2-2-2-2m2 2 2 2z"/>
+                            </svg>
+                            <span class="font-bold font-display text-lg">DRINK WATER</span>
+                        </div>
+                        <span class="text-xs font-mono bg-brand-dark px-2 py-1 border border-brand-white">+250ml</span>
+                    </div>
+                </button>
+                
+                <button class="relative w-full bg-brand-surface border-2 border-brand-muted hover:bg-brand-blue hover:border-brand-white transition-all duration-200 active:translate-x-1 active:translate-y-1 group">
+                    <div class="flex items-center justify-between p-4">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 22c5.523 0 10-4.477 10-10S17.477 2 12 2 2 4.477 2 10s4.477 10 10 10c0 .523-.08 1.021-.214 1.491L9.06 18.03a10 10 0 0 1 0-1.495 3.661L15.9 14.03a10 10 0 0 1 0 1.495 3.661C17.08 16.979 19.92 12.523 19.92 12c0 5.523-4.477 10-10 10z"/>
+                            </svg>
+                            <span class="font-bold font-display text-lg">MOVE / EXERCISE</span>
+                        </div>
+                        <svg class="w-5 h-5 text-brand-muted group-hover:text-brand-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="border-t-2 border-brand-surface bg-brand-surface/90">
+            <div class="flex items-center justify-between p-2">
+                <button class="flex flex-col items-center gap-1 w-16 p-2 border-l-2 border-brand-orange bg-brand-orange/10 text-brand-white transition-all">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10-6h8v6h-8v-6zM3 21h18v-2H3v2z"/>
+                    </svg>
+                    <span class="text-[10px] font-bold font-mono">HOME</span>
+                </button>
+                <button class="flex flex-col items-center gap-1 w-16 p-2 hover:bg-brand-blue/10 text-brand-muted hover:text-brand-white transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 20V10M8 10v10M3 20v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6zM3 20V10h18v10"/>
+                    </svg>
+                    <span class="text-[10px] font-mono">STATS</span>
+                </button>
+                <button class="flex flex-col items-center gap-1 w-16 p-2 hover:bg-brand-orange/10 text-brand-muted hover:text-brand-white transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.41 0 5.083 1.756 5.083 3.41 0 6.667-1.756 6.667-2.924c0-1.284.832-2.167 1.792-2.167 3.95v6.666c0 1.784 1.458 3.241 3.241 3.241h6.508c1.784 0 3.241-1.458 3.241-3.241V6.583c0-1.783-1.458-3.241-3.241-3.241h-6.508c-1.783 0-3.241 1.458-3.241 3.241v6.666c0 1.183-.832 2.167-1.792 2.167-.959 0-2.167.959-2.167 1.792-2.167 3.241H8.417z"/>
+                    </svg>
+                    <span class="text-[10px] font-mono">CONFIG</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

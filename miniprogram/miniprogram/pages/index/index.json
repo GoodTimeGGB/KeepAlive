@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "progress-ring": "../../components/progress-ring/progress-ring",
+    "timer-modal": "../../components/timer-modal/timer-modal"
+  }
+}

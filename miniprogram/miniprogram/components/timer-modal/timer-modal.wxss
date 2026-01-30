@@ -1,0 +1,127 @@
+.timer-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: none;
+}
+
+.timer-modal.show {
+  display: block;
+}
+
+.timer-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(13, 13, 13, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.timer-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  background-color: var(--brand-surface);
+  border: 2px solid var(--brand-muted);
+  padding: 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.timer-border {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid var(--brand-orange);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.timer-icon {
+  width: 80px;
+  height: 80px;
+  background-color: var(--brand-orange);
+  border: 4px solid var(--brand-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.timer-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--brand-white);
+  text-align: center;
+}
+
+.timer-display {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.timer-value {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--brand-blue);
+  font-family: 'Courier New', monospace;
+}
+
+.timer-unit {
+  font-size: 20px;
+  color: var(--brand-muted);
+}
+
+.timer-hint {
+  font-size: 14px;
+  color: var(--brand-muted);
+  text-align: center;
+}
+
+.timer-buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.btn-cancel,
+.btn-complete {
+  flex: 1;
+  height: 48px;
+  border: 2px solid var(--brand-white);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cancel {
+  background-color: var(--brand-surface);
+  border-color: var(--brand-muted);
+  color: var(--brand-muted);
+}
+
+.btn-complete {
+  background-color: var(--brand-orange);
+  color: var(--brand-white);
+}
+
+.btn-cancel:active,
+.btn-complete:active {
+  transform: translateX(2px) translateY(2px);
+}

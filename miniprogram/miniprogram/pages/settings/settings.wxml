@@ -1,0 +1,150 @@
+<view class="container">
+  <!-- 扫描线效果 -->
+  <view class="scan-line"></view>
+  
+  <!-- 标题栏 -->
+  <view class="header">
+    <text class="header-title">SETTINGS</text>
+    <text class="header-subtitle">Configuration Panel</text>
+  </view>
+
+  <!-- 主要内容 -->
+  <view class="main-content">
+    <!-- 用户登录区域 -->
+    <view class="section" wx:if="{{!isLoggedIn}}">
+      <button class="login-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <text class="login-icon">📱</text>
+        <text class="login-text">微信一键登录</text>
+      </button>
+      <view class="login-hint">
+        <text>登录后可同步数据到本地</text>
+      </view>
+      
+      <!-- 昵称输入 -->
+      <view class="nickname-section" wx:if="{{tempAvatarUrl}}">
+        <input 
+          class="nickname-input" 
+          type="nickname" 
+          placeholder="请输入昵称" 
+          bind:blur="onNicknameBlur"
+        />
+        <button class="save-btn" bindtap="onSaveUserInfo">保存</button>
+      </view>
+    </view>
+
+    <!-- 已登录用户信息 -->
+    <view class="section" wx:if="{{isLoggedIn && userInfo}}">
+      <view class="user-card">
+        <image class="user-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+        <view class="user-info">
+          <text class="user-name">{{userInfo.nickName}}</text>
+          <text class="user-label">已登录</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 提醒设置 -->
+    <view class="section">
+      <view class="section-title">
+        <text>REMINDERS</text>
+      </view>
+      <view class="settings-card">
+        <!-- 喝水提醒 -->
+        <view class="setting-item">
+          <view class="setting-info">
+            <view class="setting-icon">💧</view>
+            <view class="setting-details">
+              <text class="setting-name">Water</text>
+              <text class="setting-desc">45min interval</text>
+            </view>
+          </view>
+          <switch 
+            checked="{{settings.waterReminder}}" 
+            bind:change="onWaterReminderChange"
+            color="#4ECDC4"
+          />
+        </view>
+
+        <!-- 运动提醒 -->
+        <view class="setting-item">
+          <view class="setting-info">
+            <view class="setting-icon">🧘</view>
+            <view class="setting-details">
+              <text class="setting-name">Move</text>
+              <text class="setting-desc">60min interval</text>
+            </view>
+          </view>
+          <switch 
+            checked="{{settings.moveReminder}}" 
+            bind:change="onMoveReminderChange"
+            color="#4ECDC4"
+          />
+        </view>
+      </view>
+    </view>
+
+    <!-- 工作时间设置 -->
+    <view class="section">
+      <view class="section-title">
+        <text>WORK HOURS</text>
+      </view>
+      <view class="time-card">
+        <view class="time-item">
+          <text class="time-label">START</text>
+          <picker mode="time" value="{{settings.remindStartTime}}" bind:change="onStartTimeChange">
+            <view class="time-value">
+              <text class="time-time">{{settings.remindStartTime}}</text>
+              <text class="time-period">AM</text>
+            </view>
+          </picker>
+        </view>
+        
+        <text class="time-arrow">→</text>
+        
+        <view class="time-item">
+          <text class="time-label">END</text>
+          <picker mode="time" value="{{settings.remindEndTime}}" bind:change="onEndTimeChange">
+            <view class="time-value">
+              <text class="time-time">{{settings.remindEndTime}}</text>
+              <text class="time-period">PM</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <text class="time-hint">Notifications only during work hours</text>
+    </view>
+
+    <!-- 扩展功能 -->
+    <view class="section">
+      <view class="section-title">
+        <text>EXTENSIONS</text>
+      </view>
+      <view class="extension-card">
+        <button class="extension-btn" bindtap="onAddToCalendar">
+          <view class="extension-info">
+            <view class="extension-icon">📅</view>
+            <view class="extension-details">
+              <text class="extension-name">Add to Calendar</text>
+              <text class="extension-desc">一键添加今日喝水计划到日历</text>
+            </view>
+          </view>
+          <text class="extension-arrow">→</text>
+        </button>
+      </view>
+    </view>
+
+    <!-- 页脚 -->
+    <view class="footer">
+      <view class="footer-status">
+        <view class="status-dot"></view>
+        <text>System Operational</text>
+      </view>
+      <text class="footer-text">
+        Programmer Gas Station v1.0
+      </text>
+      <text class="footer-text">
+        Made with ❤️ for Coders
+      </text>
+    </view>
+  </view>
+</view>

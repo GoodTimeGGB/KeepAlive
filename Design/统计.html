@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>程序员加油站 - 运动提醒</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "brand-dark": "#0D0D0D",
+                        "brand-gray": "#1A1A1A",
+                        "brand-surface": "#252525",
+                        "brand-orange": "#FF6B35",
+                        "brand-blue": "#4ECDC4",
+                        "brand-white": "#E5E5E5",
+                        "brand-muted": "#808080",
+                    },
+                    fontFamily: {
+                        "display": ["Playfair Display", "serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                        "sans": ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "none": "0px",
+                        "sm": "2px",
+                        "md": "4px",
+                    },
+                    boxShadow: {
+                        "brutal": "4px 4px 0px 0px #FF6B35",
+                        "brutal-blue": "4px 4px 0px 0px #4ECDC4",
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-border': 'pulse-border 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        'pulse-border': {
+                            '0%, 100%': { borderColor: '#FF6B35' },
+                            '50%': { borderColor: '#4ECDC4' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .pattern-grid {
+            background-image: linear-gradient(#252525 1px, transparent 1px),
+                              linear-gradient(90deg, #252525 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4ECDC4, transparent);
+            opacity: 0.3;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(200%); }
+        }
+        .glitch-hover:hover {
+            animation: glitch 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-white font-sans min-h-screen overflow-x-hidden antialiased">
+    <div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-brand-dark">
+        
+        <!-- Scan Line Effect -->
+        <div class="scan-line"></div>
+        
+        <!-- Header -->
+        <header class="relative border-b-2 border-brand-surface">
+            <div class="pattern-grid opacity-5 absolute inset-0"></div>
+            <div class="relative flex items-center p-4">
+                <h1 class="text-2xl font-black font-display tracking-tight">
+                    REMINDER
+                </h1>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col p-4 gap-6 relative">
+            <div class="pattern-grid opacity-5 absolute inset-0 pointer-events-none"></div>
+            
+            <!-- Backdrop Content (blurred) -->
+            <div class="opacity-20 blur-sm select-none">
+                <div class="flex items-center gap-3 border-l-4 border-brand-orange pl-3">
+                    <svg class="w-5 h-5 text-brand-orange" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2v20M2 12h20M12 2z"/>
+                    </svg>
+                    <p class="text-2xl font-bold font-display">3 <span class="text-brand-muted text-sm">/ 8</span></p>
+                    <p class="text-sm font-mono text-brand-muted">CUPS</p>
+                </div>
+            </div>
+
+            <!-- Health Tip Modal -->
+            <div class="relative animate-float">
+                <div class="absolute -inset-2 border-2 border-brand-orange opacity-20"></div>
+                <div class="relative bg-brand-surface border-2 border-brand-muted p-6">
+                    <!-- Icon Header -->
+                    <div class="flex items-center justify-center mb-6">
+                        <div class="relative w-20 h-20 bg-brand-orange border-4 border-brand-white flex items-center justify-center">
+                            <svg class="w-10 h-10 text-brand-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0 1 3.91 3.91l1.405 1.405A2.032 2.032 0 0 1 3.91 3.91l1.405-1.405A2.032 2.032 0 0 1 3.91 3.91l1.405 1.405A2.032 2.032 0 0 1 3.91 3.91l-1.405 1.405A2.032 2.032 0 0 1 3.91 3.91L15 17z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Title -->
+                    <h2 class="text-xl font-black font-display text-center mb-4 tracking-tight uppercase">
+                        健康小贴士
+                    </h2>
+
+                    <!-- Message -->
+                    <p class="text-center text-lg font-mono text-brand-muted mb-8 leading-relaxed">
+                        又坐了1小时啦<br/>
+                        起来走两步<br/>
+                        做10个提肛运动吧
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col gap-3">
+                        <button class="relative w-full bg-brand-orange border-2 border-brand-white hover:bg-brand-blue active:translate-x-1 active:translate-y-1 transition-all duration-200 py-4 font-bold font-display text-lg group glitch-hover">
+                            <span class="relative z-10 flex items-center justify-center gap-3">
+                                GO NOW
+                                <svg class="w-5 h-5 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                            <div class="absolute inset-0[4px] bg-brand-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-300"></div>
+                        </button>
+
+                        <button class="w-full bg-brand-surface border-2 border-brand-muted hover:border-brand-blue hover:text-brand-blue active:bg-brand-muted transition-all duration-200 py-3 font-mono text-sm text-brand-muted group">
+                            <span class="relative z-10">REMIND LATER</span>
+                            <div class="absolute inset-0 border-brand-blue opacity-0 group-hover:opacity-100 animate-pulse-border"></div>
+                        </button>
+                    </div>
+                </div>
+           
+                
+                <!-- Decorative Elements -->
+                <div class="absolute -top-4 -right-4 w-8 h-8 bg-brand-blue/10 border border-brand-blue/30"></div>
+                <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-brand-orange/10 border border-brand-orange/30"></div>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="border-t-2 border-brand-surface bg-brand-surface/90">
+            <div class="flex items-center justify-between p-2">
+                <button class="flex flex-col items-center gap-1 w-16 p-2 hover:bg-brand-blue/10 text-brand-muted hover:text-brand-white transition-all">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10-6h8v6h-8v-6zM3 21h18v-2H3v2z"/>
+                    </svg>
+                    <span class="text-[10px] font-mono">HOME</span>
+                </button>
+                <button class="flex flex-col items-center gap-1 w-16 p-2 border-l-2 border-brand-blue bg-brand-blue/10 text-brand-white transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 20V10M8 10v10M3 20v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6zM3 20V10h18v10"/>
+                    </svg>
+                    <span class="text-[10px] font-bold font-mono">STATS</span>
+                </button>
+                <button class="flex flex-col items-center gap-1 w-16 p-2 hover:bg-brand-orange/10 text-brand-muted hover:text-brand-white transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.41 0 5.083 1.756 5.083 3.41 0 6.667-1.756 6.667-2.924c0-1.284.832-2.167 1.792-2.167 3.95v6.666c0 1.784 1.458 3.241 3.241 3.241h6.508c1.784 0 3.241-1.458 3.241-3.241V6.583c0-1.783-1.458-3.241-3.241-3.241h-6.508c-1.783 0-3.241 1.458-3.241 3.241v6.666c0 1.183-.832 2.167-1.792 2.167-.959 0-2.167.959-2.167 1.792-2.167 3.241H8.417z"/>
+                    </svg>
+                    <span class="text-[10px] font-mono">CONFIG</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>
