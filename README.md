@@ -6,7 +6,7 @@
 
 ## 项目预览
 
-![image-20260130092025938](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20260130092025938.png)
+![image-20260130092025938](.\Other\image-20260130092025938.png)
 
 ## 主要功能
 
